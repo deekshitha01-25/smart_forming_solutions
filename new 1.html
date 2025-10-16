@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Farming Solutions — Empowering Farmers with Smart Technology</title>
+  <meta name="description" content="Smart Farming Solutions — precision agriculture, IoT, and analytics to help farmers increase yield and reduce waste." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6fbf7;
+      --card:#ffffff;
+      --green-600:#0f9d58;
+      --green-400:#34c47b;
+      --teal:#0e7b86;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.7);
+      --accent: linear-gradient(135deg,var(--green-600),var(--teal));
+      --maxWidth:1100px;
+      --shadow: 0 10px 25px rgba(14,123,134,0.08);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#0f172a;line-height:1.5}
+    .container{max-width:var(--maxWidth);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:var(--shadow)}
+    .brand h1{margin:0;font-size:18px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:inherit;text-decoration:none;font-weight:600}
+    .cta{background:var(--green-600);color:white;padding:10px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(15,157,88,0.18)}
+
+    /* Mobile nav */
+    .hamburger{display:none;border:0;background:none;font-size:22px}
+    @media(max-width:880px){nav ul{display:none}.hamburger{display:block}}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:40px;padding:64px 0;align-items:center}
+    .hero-left h2{font-size:34px;margin:0 0 12px}
+    .hero-left p{color:var(--muted);margin:0 0 20px}
+    .hero-cta{display:flex;gap:12px}
+    .btn-outline{padding:12px 18px;border-radius:10px;border:2px solid var(--green-600);background:transparent;font-weight:700}
+    .stat-grid{display:flex;gap:18px;margin-top:28px}
+    .stat{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);min-width:130px}
+    .stat h3{margin:0;color:var(--green-600)}
+
+    .hero-right{position:relative}
+    .device{background:linear-gradient(180deg, rgba(14,123,134,0.08), rgba(52,196,123,0.03));padding:18px;border-radius:16px;box-shadow:var(--shadow)}
+    .device img{width:100%;border-radius:10px;display:block}
+
+    /* Sections */
+    section{padding:60px 0}
+    h2.section-title{font-size:22px;margin:0 0 18px}
+    p.lead{color:var(--muted);max-width:700px}
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);padding:20px;border-radius:14px;box-shadow:var(--shadow);transition:transform .28s ease, box-shadow .28s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(14,123,134,0.08)}
+    .icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    @media(max-width:1100px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}.hero-right{order:-1}}
+    @media(max-width:680px){.grid{grid-template-columns:1fr}.stat-grid{flex-direction:column}.hero-left h2{font-size:26px}}
+
+    /* Team */
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .person{background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));padding:18px;border-radius:12px;text-align:center}
+    .avatar{width:92px;height:92px;border-radius:50%;display:inline-block;overflow:hidden;margin-bottom:12px}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    @media(max-width:980px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.team-grid{grid-template-columns:1fr}}
+
+    /* Testimonials slider */
+    .testimonials{position:relative}
+    .slides{display:flex;gap:12px;overflow:hidden}
+    .slide{min-width:100%;transition:transform .5s ease}
+    .testimonial{background:var(--card);padding:22px;border-radius:14px;box-shadow:var(--shadow)}
+    .controls{display:flex;gap:10px;justify-content:center;margin-top:14px}
+
+    /* Footer */
+    footer{padding:40px 0;background:linear-gradient(180deg, #e8f8f4, var(--bg));border-top:1px solid rgba(14,123,134,0.04)}
+
+    /* small animations */
+    .fade-up{opacity:0;transform:translateY(10px);animation:fadeUp .8s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    .leafy{position:absolute;right:-60px;top:-30px;opacity:0.12;filter:blur(0.4px);transform:rotate(8deg)}
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <h1>Smart Farming Solutions</h1>
+          <p class="muted">Empowering farmers with smart technology</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="hamburger" aria-label="toggle menu" onclick="toggleNav()">☰</button>
+        <ul id="navList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a class="cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-left fade-up">
+        <h2>Make farming smarter — higher yield, lower waste.</h2>
+        <p class="lead">We provide precision-agriculture hardware, farm analytics, and IoT solutions that help small-to-large farms reduce costs and increase production sustainably.</p>
+        <div class="hero-cta">
+          <a class="cta" href="#contact">Get a Demo</a>
+          <a class="btn-outline" href="#products">Explore Products</a>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <h3>+20%</h3>
+            <p class="muted">Avg yield increase</p>
+          </div>
+          <div class="stat">
+            <h3>IoT • Cloud</h3>
+            <p class="muted">Real-time farm insights</p>
+          </div>
+          <div class="stat">
+            <h3>2000+</h3>
+            <p class="muted">Acres under management</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="device">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="smart farming dashboard">
+        </div>
+        <svg class="leafy" width="240" height="240" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20,100 C40,10 160,10 180,100 C160,190 40,190 20,100 Z" fill="#0f9d58"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About Smart Farming Solutions</h2>
+      <p class="lead">We combine agronomy expertise with modern engineering to deliver tailored solutions — from soil sensors and drone mapping to farm-level analytics and advisory services. Our mission: help farmers make data-driven decisions that protect the environment and improve livelihoods.</p>
+
+      <div style="margin-top:22px" class="grid">
+        <div class="card fade-up">
+          <div class="icon" style="background:linear-gradient(135deg,#e6fbf1,#d1f6e8)">🌱</div>
+          <h3>Precision Sensors</h3>
+          <p class="muted">Soil moisture, EC, temperature sensors with low-power wireless connectivity.</p>
+        </div>
+        <div class="card fade-up">
+          <div class="icon" style="background:linear-gradient(135deg,#f0f9ff,#dff5fb)">📡</div>
+          <h3>Connectivity & Gateways</h3>
+          <p class="muted">Robust rural connectivity using LPWAN/4G gateways that forward data to the cloud.</p>
+        </div>
+        <div class="card fade-up">
+          <div class="icon" style="background:linear-gradient(135deg,#fff7ed,#fff0dc)">📊</div>
+          <h3>Analytics & Advisory</h3>
+          <p class="muted">Actionable insights, alerts and farming recommendations powered by ML models.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <h2 class="section-title">Products</h2>
+      <p class="lead">Modular products that integrate with existing farm practices — quick to deploy and built for durability.</p>
+
+      <div style="margin-top:20px" class="grid">
+        <div class="card">
+          <h3>Soil Sensor Kit</h3>
+          <p class="muted">Multi-parameter sensor (moisture, temp, EC) with 2-year battery life and weatherproof enclosure.</p>
+          <p style="margin-top:12px"><strong>Price:</strong> Contact us</p>
+        </div>
+        <div class="card">
+          <h3>Drone Mapping Service</h3>
+          <p class="muted">High-resolution NDVI maps to spot stressed areas and optimise inputs like water and fertiliser.</p>
+        </div>
+        <div class="card">
+          <h3>Farm Dashboard</h3>
+          <p class="muted">Web + mobile dashboard with alerts, field history, yield prediction and exportable reports.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="section-title">Services & Solutions</h2>
+      <p class="lead">We offer end-to-end deployment and support — pilot programmes, training, agronomy consulting and long-term managed services.</p>
+
+      <div style="margin-top:20px" class="grid">
+        <div class="card">
+          <h3>Pilot & Proof of Value</h3>
+          <p class="muted">Short-term pilots to measure ROI and customise our models to your crop and soil types.</p>
+        </div>
+        <div class="card">
+          <h3>Managed Farm Services</h3>
+          <p class="muted">We monitor, advise and co-manage operations for larger clients seeking a hands-off approach.</p>
+        </div>
+        <div class="card">
+          <h3>Integration & APIs</h3>
+          <p class="muted">APIs and data export for integration with legacy systems and third-party platforms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <h2 class="section-title">Meet the Team</h2>
+      <p class="lead">A cross-functional team of agronomists, engineers and product designers working together with farmers.</p>
+
+      <div class="team-grid" style="margin-top:18px">
+        <div class="person">
+          <div class="avatar"><img src="ramakrishna.jpg"alt="team member"></div>
+          <h4 style="margin:6px 0 0"></h4>
+          <p class="muted">Head of Agronomy</p>
+        </div>
+        <div class="person">
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1545996124-6d5f9f2a4f9b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="team member"></div>
+          <h4 style="margin:6px 0 0">Mahesh babu</h4>
+          <p class="muted">CTO</p>
+        </div>
+        <div class="person">
+          <div class="avatar"><img src="https://images.unsplash.com/photo-1544009748-5f9b9b6b0c6d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="team member"></div>
+          <h4 style="margin:6px 0 0">Ravindranadha</h4>
+          <p class="muted">Product Manager</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+      <h2 class="section-title">What Farmers Say</h2>
+      <div class="slides" id="slides">
+        <div class="slide">
+          <div class="testimonial">
+            <p>"The soil sensors helped us reduce water usage by 30% and increased cotton yield — couldn't be happier."</p>
+            <p style="margin-top:12px;font-weight:700">— Ramesh, Farmer</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="testimonial">
+            <p>"Deploying the dashboard across our 400-acre farm made irrigation scheduling so much easier."</p>
+            <p style="margin-top:12px;font-weight:700">— Savita, Farm Manager</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="testimonial">
+            <p>"The drone maps let us spot disease early — we saved thousands in reduced losses."</p>
+            <p style="margin-top:12px;font-weight:700">— Manoj, Agripreneur</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button onclick="prevSlide()">◀</button>
+        <button onclick="nextSlide()">▶</button>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <section id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="lead">Interested in a pilot or want to partner? Reach out and we'll respond within 48 hours.</p>
+
+      <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap">
+        <form style="flex:1;min-width:280px;background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)" onsubmit="event.preventDefault();alert('Demo request sent!')">
+          <label style="display:block;margin-bottom:8px">Name</label>
+          <input required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef1" />
+          <label style="display:block;margin:12px 0 8px">Email</label>
+          <input required type="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef1" />
+          <label style="display:block;margin:12px 0 8px">Message</label>
+          <textarea required style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef1" rows="4">I would like a demo of Smart Farming Solutions.</textarea>
+          <div style="margin-top:12px"><button class="cta" type="submit">Request Demo</button></div>
+        </form>
+
+        <div style="flex:1;min-width:260px;background:linear-gradient(180deg,#fff,#f6fff9);padding:18px;border-radius:12px;box-shadow:var(--shadow)">
+          <h3 style="margin:0 0 6px">Reach us</h3>
+          <p class="muted" style="margin:0">Email: hello@smartfarmingsolutions.com</p>
+          <p class="muted" style="margin:6px 0 0">Phone: +91 98765 43210</p>
+          <p class="muted" style="margin:6px 0 0">Address: 12 Green Tech Park, Pune, Maharashtra, India</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container center">
+      <p style="margin:0">© <strong>Smart Farming Solutions</strong> — Empowering farmers with smart technology</p>
+      <p class="muted" style="margin:8px 0 0">Designed for sustainability • Built with care</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    function toggleNav(){
+      const nav = document.getElementById('navList');
+      if(nav.style.display === 'flex') nav.style.display = '';
+      else nav.style.display = 'flex';
+    }
+
+    // Simple testimonial slider
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    function render(){
+      slides.forEach((s,i)=> s.style.transform = `translateX(${(i-current)*100}%)`);
+    }
+    function nextSlide(){ current = (current+1) % slides.length; render(); }
+    function prevSlide(){ current = (current-1 + slides.length) % slides.length; render(); }
+    // auto slide
+    setInterval(nextSlide, 6000);
+    render();
+
+    // reveal animations on load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{el.style.animationDelay = (i*80)+'ms'});
+    });
+  </script>
+</body>
+</html>
